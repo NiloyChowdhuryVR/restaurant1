@@ -2,13 +2,18 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { Syne } from 'next/font/google'
+import { Syne, Protest_Strike} from 'next/font/google'
 import Provider from "@/components/Provider";
 
 const syne = Syne({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-syne',
+})
+const prostrike = Protest_Strike({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-prostrike',
 })
 
 const geistSans = Geist({
@@ -34,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${syne.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${prostrike.variable} ${syne.variable} antialiased`}
       >
         <Provider>
         {children}

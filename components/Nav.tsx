@@ -25,7 +25,7 @@ const Nav = ({
 });
 
   return (
-    <div ref={navRef} className='w-full flex justify-center py-5'>
+    <div ref={navRef} className='w-full flex justify-center py-5 '>
 
     <div className='flex justify-between items-center w-[90%] '>
         <Image src="/wowmomo.jpeg" alt='Logo' height={40} width={40} className='rounded-xl cursor-pointer '/>

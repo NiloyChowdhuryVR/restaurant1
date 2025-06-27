@@ -1,11 +1,9 @@
 "use client";
 import { menuItems, socialItems } from "@/constants/menuItems";
-import React, { useEffect, useRef, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
-import { ChevronRight } from "lucide-react";
+import React, { useEffect, useRef } from "react";
+import { ArrowUpRight, ChevronRight, CircleX } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { CircleX } from "lucide-react";
 
 const Navbar = ({
   isOpen,
@@ -15,12 +13,12 @@ const Navbar = ({
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const menuBar = useRef<HTMLDivElement>(null);
-  //   const [isOpen, setIsOpen] = useState(isOpenProp);
   const tl = useRef<gsap.core.Timeline>(null);
 
   useGSAP(
     () => {
-        gsap.set(".menuitem",{x:-50,opacity:0})
+      gsap.set(".menuitem", { x: -50, opacity: 0 });
+
       tl.current = gsap.timeline({
         paused: true,
         onReverseComplete: () => {
@@ -29,26 +27,26 @@ const Navbar = ({
           }
         },
       });
+
       tl.current
         .from(menuBar.current, {
           y: -700,
           opacity: 0,
           duration: 0.5,
-          //   ease: "power4.out",
           ease: "sine.out",
-        }).to(".menuitem",{
-            x:0,
-            opacity:1,
-            duration:0.5,
-            stagger:0.1,
-            delay:-0.75
+        })
+        .to(".menuitem", {
+          x: 0,
+          opacity: 1,
+          duration: 0.5,
+          stagger: 0.1,
+          delay: -0.75,
         })
         .eventCallback("onStart", () => {
           if (menuBar.current) {
             menuBar.current.style.display = "flex";
           }
         });
-        
     },
     { scope: menuBar }
   );
@@ -70,28 +68,33 @@ const Navbar = ({
       {menuItems.map((menuItem) => (
         <div
           key={menuItem.label}
-          className="flex menuitem justify-between w-[90%] items-center py-4 cursor-pointer border-b-1 transition-all duration-350
-          text-white border-white hover:bg-yellow-300 hover:text-red-600"
+          className="flex menuitem justify-between w-[90%] items-center py-4 cursor-pointer border-b-1 border-white 
+          text-white transition-all duration-350
+          hover:bg-yellow-300 hover:text-red-600
+          active:bg-yellow-300 active:text-red-600"
         >
           <div className="flex items-baseline gap-2">
             <ArrowUpRight />
-            <h1 className="font-dongpora uppercase text-8xl md:text-8xl ">
+            <h1 className="font-dongpora uppercase text-8xl md:text-8xl">
               {menuItem.label}.
             </h1>
           </div>
+
           <div className="flex gap-5 justify-center items-center">
-            {menuItem.label == "home" ? (
+            {menuItem.label === "home" && (
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="cursor-pointer transition-all duration-350 hover:scale-110"
+                className="cursor-pointer transition-all duration-350 
+                hover:scale-110 active:scale-110"
               >
                 <CircleX size={70} />
               </button>
-            ) : null}
+            )}
             <ChevronRight />
           </div>
         </div>
       ))}
+
       <div className="flex justify-between items-center w-[90%] mt-5">
         {socialItems.map((socialItem) => (
           <div key={socialItem.label}>
@@ -101,7 +104,6 @@ const Navbar = ({
           </div>
         ))}
       </div>
-      <div></div>
     </div>
   );
 };
