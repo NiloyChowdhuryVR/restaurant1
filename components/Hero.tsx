@@ -108,7 +108,7 @@ const Hero = () => {
           />
         </div>
         <div className="absolute inset-0 bg-red-500 mix-blend-multiply -z-9"></div>
-        <div className="absolute inset-0 bg-black opacity-30 -z-9"></div>
+        <div className="absolute inset-0 bg-black opacity-20 -z-9"></div>
       </div>
       <div className="flex flex-col lg:flex-row justify-between  items-center pt-5 h-full w-[90%] ">
         <div className="flex justify-center items-center flex-col gap-5">
@@ -126,10 +126,10 @@ const Hero = () => {
             >
               Buy Now
             </button> */}
-<button className="before:ease relative h-12 w-40 text-xl font-syne font-extrabold overflow-hidden border border-white text-white cursor-pointer shadow-2xl transition-all
-  before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-yellow-500 before:duration-300
-  hover:text-white hover:shadow-yellow-500 hover:before:h-64 hover:before:-translate-y-32
-  active:text-white active:shadow-yellow-500 active:before:h-64 active:before:-translate-y-32">
+<button className="before:ease relative h-12 w-40 text-xl font-syne font-extrabold overflow-hidden border rounded-4xl border-white text-black bg-yellow-300 cursor-pointer shadow-2xl transition-all
+  before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-white before:duration-300
+  hover:text-black hover:shadow-white hover:before:h-64 hover:before:-translate-y-32
+  active:text-white active:shadow-white active:before:h-64 active:before:-translate-y-32">
   <span className="relative z-9">Buy Now</span>
 </button>
 
