@@ -40,7 +40,7 @@ const Marquee = () => {
   return (
     <div
       ref={marqueeDiv}
-      className="w-full overflow-hidden bg-yellow-300 py-4 cursor-pointer"
+      className="w-full z-9999 overflow-hidden bg-yellow-300 py-4 cursor-pointer"
     >
       <div
         ref={marqueeRef}

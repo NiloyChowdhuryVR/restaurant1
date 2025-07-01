@@ -29,8 +29,11 @@ const BigImage = () => {
 
 
   return (
-    <div ref={containerRef} className='h-full w-full relative overflow-hidden rounded-[0px] will-change-transform'>
+    <div className='overflow-hidden md:m-0 -mb-7'>
+        
+    <div ref={containerRef} className='h-full w-full m-0 relative overflow-hidden rounded-[0px] will-change-transform'>
         <Image src={"/momoshrink-1.jpg"} alt='Momo' height={1600} width={900} className='object-cover w-[100%] max-h-screen'/>
+    </div>
     </div>
   )
 }

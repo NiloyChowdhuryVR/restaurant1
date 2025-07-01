@@ -2,6 +2,8 @@ import Hero from '@/components/Hero'
 import React from 'react'
 import Slider from "@/components/Slider"
 import BigImage from '@/components/BigImage'
+import AboutUs from '@/components/AboutUs'
+import Menu from '@/components/Menu'
 
 const page = () => {
   return (
@@ -9,6 +11,9 @@ const page = () => {
     <Hero/>
     <Slider/>
     <BigImage/>
+    <AboutUs/>
+    <Menu/>
+    
     jdfgidiod
     <div className='h-screen'>
 
