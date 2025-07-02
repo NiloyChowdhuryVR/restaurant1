@@ -4,6 +4,7 @@ import Slider from "@/components/Slider"
 import BigImage from '@/components/BigImage'
 import AboutUs from '@/components/AboutUs'
 import Menu from '@/components/Menu'
+import Footer from '@/components/Footer'
 
 const page = () => {
   return (
@@ -13,11 +14,7 @@ const page = () => {
     <BigImage/>
     <AboutUs/>
     <Menu/>
-    
-    jdfgidiod
-    <div className='h-screen'>
-
-    </div>
+    <Footer/>
     </div>
   )
 }

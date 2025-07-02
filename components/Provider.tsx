@@ -20,7 +20,6 @@ const Provider = ({children}:{children:React.ReactNode}) => {
     <div>
         {isLoading?<PreLoader setIsLoading={setIsLoading}/>:null}
         {children}
-        <h1>{isLoading?"true":"false"}</h1>
     </div>
   )
 }

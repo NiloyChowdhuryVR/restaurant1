@@ -40,22 +40,22 @@ const Marquee = () => {
   return (
     <div
       ref={marqueeDiv}
-      className="w-full z-9999 overflow-hidden bg-yellow-300 py-4 cursor-pointer"
+      className="w-full z-9999 overflow-hidden bg-yellow-300 cursor-pointer"
     >
       <div
         ref={marqueeRef}
         className="flex font-bold text-4xl gap-16"
       >
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
-        <Image src={"/wowmomo-svg.svg"} alt="logo" height={100} width={100} className="w-[6%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
+        <Image src={"/logo-trans.png"} alt="logo" height={100} width={100} className="w-[15%] md:w-[8%]"/>
 
       </div>
     </div>

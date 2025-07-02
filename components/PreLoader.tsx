@@ -26,7 +26,7 @@ const PreLoader = ({
   return (
     <div
       ref={preloaderRef}
-      className="w-full fixed z-10 min-h-screen  flex justify-center items-center"
+      className="w-full fixed z-999999 min-h-screen  flex justify-center items-center"
     >
       <div className="preloaderBar fixed top-0 left-0 bg-red-500 w-1/4 min-h-screen flex justify-center items-center ">
       <h1 className="text-8xl font-dongpora text-white ">W</h1></div>
