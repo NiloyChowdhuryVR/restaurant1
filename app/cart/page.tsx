@@ -3,10 +3,12 @@ import CartModal from "@/components/CartModal";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import React from "react";
+import prisma from "../lib/prisma";
 
 const page = () => {
     const user = useUser();
     const router = useRouter();
+    
 
 if(!user.user){
     router.push('/sign-in');
