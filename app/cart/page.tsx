@@ -8,6 +8,16 @@ import prisma from "../lib/prisma";
 const page = () => {
     const user = useUser();
     const router = useRouter();
+
+  const handleCheck = async ()=>{
+    const dataa = await prisma.user.create({
+      data:{
+        name:"Niloy CHowhdury",
+        id:"uwuwuw",
+        email:"jhinga lala hu hu",
+      }
+    })
+  }
     
 
 if(!user.user){
@@ -17,6 +27,7 @@ if(!user.user){
   return (
     <div>
       <CartModal />
+      <button onClick={handleCheck}>PRESS THIS</button>
       <h1>
         {user.user?.fullName || "Couldn't Fetch Name"}
       </h1>
