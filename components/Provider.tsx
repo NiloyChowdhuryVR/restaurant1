@@ -1,27 +1,41 @@
-"use client"
-import React, { useEffect, useState } from 'react'
-import PreLoader from './PreLoader'
-import Lenis from 'lenis';
+"use client";
+import React, { useEffect, useState } from "react";
+import PreLoader from "./PreLoader";
+import Lenis from "lenis";
+import { ClerkProvider} from "@clerk/nextjs";
 
-const Provider = ({children}:{children:React.ReactNode}) => {
-    const [isLoading,setIsLoading] = useState(true);
+const Provider = ({ children }: { children: React.ReactNode }) => {
+  const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(()=>{
+  useEffect(() => {
+    const hasVisited = sessionStorage.getItem("hasVisited");
 
-      const lenis = new Lenis();
-      function raf(time: any){
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
+    if (!hasVisited) {
+      setIsLoading(true);
+    }
+
+    const lenis = new Lenis();
+    function raf(time: any) {
+      lenis.raf(time);
       requestAnimationFrame(raf);
-    },[])
+    }
+    requestAnimationFrame(raf);
+  }, []);
 
-  return (
-    <div>
-        {isLoading?<PreLoader setIsLoading={setIsLoading}/>:null}
+  const handlePreLoaderComplete = () => {
+    sessionStorage.setItem("hasVisited", "true");
+    setIsLoading(false);
+  };
+
+
+return (
+  <div>
+      {isLoading ? <PreLoader setIsLoading={handlePreLoaderComplete} /> : null}
+      <ClerkProvider>
         {children}
+        </ClerkProvider>
     </div>
-  )
-}
+  );
+};
 
-export default Provider
+export default Provider;

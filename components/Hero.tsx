@@ -139,12 +139,6 @@ const Hero = () => {
             Experience
           </h1>
           <div ref={headingRef}>
-            {/* <button
-              className="bg-yellow-300 py-3 px-6 rounded-4xl font-syne font-extrabold text-black"
-              onClick={handleOpen}
-            >
-              Buy Now
-            </button> */}
             <button
               className="before:ease relative h-12 w-40 text-xl font-syne font-extrabold overflow-hidden border rounded-4xl border-white text-black bg-yellow-300 cursor-pointer shadow-2xl transition-all
   before:absolute before:top-1/2 before:h-0 before:w-64 before:origin-center before:-translate-x-20 before:rotate-45 before:bg-white before:duration-300

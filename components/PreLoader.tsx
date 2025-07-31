@@ -29,13 +29,13 @@ const PreLoader = ({
       className="w-full fixed z-999999 min-h-screen  flex justify-center items-center"
     >
       <div className="preloaderBar fixed top-0 left-0 bg-red-500 w-1/4 min-h-screen flex justify-center items-center ">
-      <h1 className="text-8xl font-dongpora text-white ">W</h1></div>
+      <h1 className="text-8xl font-dongpora text-white ">H</h1></div>
       <div className="preloaderBar fixed top-0 left-1/4 bg-red-500 w-1/4 min-h-screen flex justify-center items-center ">
-      <h1 className="text-8xl font-dongpora text-white ">O</h1></div>
+      <h1 className="text-8xl font-dongpora text-white ">M</h1></div>
       <div className="preloaderBar fixed top-0 left-2/4 bg-red-500 w-1/4 min-h-screen flex justify-center items-center ">
-      <h1 className="text-8xl font-dongpora text-white ">W</h1></div>
+      <h1 className="text-8xl font-dongpora text-white ">B</h1></div>
       <div className="preloaderBar fixed top-0 left-3/4 bg-red-500 w-1/4 min-h-screen flex justify-center items-center ">
-      <h1 className="text-8xl text-white mt-[-12px]"><FaHeart className="w-20"/></h1></div>
+        <h1 className="text-8xl font-dongpora text-white ">T</h1></div>
     </div>
   );
 };

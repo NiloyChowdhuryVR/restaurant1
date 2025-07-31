@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Link from "next/link";
 
 const Nav = ({
   isOpen,
@@ -42,7 +43,9 @@ const Nav = ({
             size={30}
             className="text-white cursor-pointer"
           />
-          <ShoppingCart size={30} className="text-white cursor-pointer" />
+          <Link href="/cart">
+          <ShoppingCart size={30} className="text-white cursor-pointer"/>
+          </Link>
         </div>
       </div>
     </div>
