@@ -1,51 +1,73 @@
 import { verifyWebhook } from '@clerk/nextjs/webhooks';
 import { NextRequest } from 'next/server';
-
-// Import your Prisma client
-import  prisma  from '../../lib/prisma';
+import prisma from '../../lib/prisma';
 
 export async function POST(req: NextRequest) {
+  const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SIGNING_SECRET;
+
+  if (!WEBHOOK_SECRET) {
+    console.error('Missing CLERK_WEBHOOK_SIGNING_SECRET');
+    return new Response('Missing webhook secret', { status: 500 });
+  }
+
+  let evt;
+
   try {
-    const evt = await verifyWebhook(req);
+    evt = await verifyWebhook(req);
+  } catch (err) {
+    console.error('Webhook verification failed:', err);
+    return new Response('Webhook verification failed', { status: 400 });
+  }
+
+  try {
     const { id: clerkUserId } = evt.data;
     const eventType = evt.type;
 
-        if (!clerkUserId) {
+    if (!clerkUserId) {
       console.error('Webhook payload is missing the user ID.');
       return new Response('Error: User ID not found in webhook payload', { status: 400 });
     }
 
     switch (eventType) {
-      case 'user.created':
+      case 'user.created': {
+        const data = evt.data as any;
+        console.log('New user created:', data.id);
         await prisma.user.create({
           data: {
             id: clerkUserId,
-            email: evt.data.email_addresses[0].email_address,
-            name: `${evt.data.first_name || ''} ${evt.data.last_name || ''}`.trim() || null,
+            email: data.email_addresses?.[0]?.email_address || '',
+            name: `${data.first_name || ''} ${data.last_name || ''}`.trim() || null,
           },
         });
         break;
-      case 'user.updated':
+      }
+
+      case 'user.updated': {
+        const data = evt.data as any;
         await prisma.user.update({
           where: { id: clerkUserId },
           data: {
-            email: evt.data.email_addresses[0].email_address,
-            name: `${evt.data.first_name || ''} ${evt.data.last_name || ''}`.trim() || null,
+            email: data.email_addresses?.[0]?.email_address || '',
+            name: `${data.first_name || ''} ${data.last_name || ''}`.trim() || null,
           },
         });
         break;
-      case 'user.deleted':
+      }
+
+      case 'user.deleted': {
         await prisma.user.delete({
           where: { id: clerkUserId },
         });
         break;
+      }
+
       default:
-        console.warn(`Unhandled event type: ${eventType}`);
+        console.log(`Unhandled event type: ${eventType}`);
     }
 
-    return new Response('Webhook received', { status: 200 });
+    return new Response('Success', { status: 200 });
   } catch (err) {
-    console.error('Error verifying webhook:', err);
-    return new Response('Error verifying webhook', { status: 400 });
+    console.error('Database operation failed:', err);
+    return new Response('Database error', { status: 500 });
   }
 }
